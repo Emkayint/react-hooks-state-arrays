@@ -12,11 +12,7 @@ function SpicyFoodList() {
     setFoods(newFoodArray)
   }
 
-  const foodList = foods.map((food) => (
-    <li key={food.id} onClick = {() => handleLiClick(food.id)}>
-      {food.name} | Heat: {food.heatLevel} | Cuisine: {food.cuisine}
-    </li>
-  ));
+  
 
   // function handleClick(id){
   //   const newFoodArray = foods.filter((food) => food.id !== id);
@@ -33,6 +29,12 @@ function SpicyFoodList() {
       return food.cuisine === filterBy;
     }
   });
+
+  const foodList = foodsToDisplay.map((food) => (
+    <li key={food.id} onClick = {() => handleLiClick(food.id)}>
+      {food.name} | Heat: {food.heatLevel} | Cuisine: {food.cuisine}
+    </li>
+  ));
 
   function handleLiClick(id){
     const  newFoodArray = foods.map((food) => {
